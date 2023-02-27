@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Dosis', sans-serif;
+  background-image: linear-gradient(to right top, #ca19d0, #ffee00);
+  background-attachment: fixed;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+  max-width: 1200px;
+}
+
+.circles {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.circle {
+  background-color: rgb(1, 28, 28);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  pointer-events: none;
+  filter: brightness(30%);
+}
+
+#circle1 {
+  background-color: green;
+} 
+
+#circle2 {
+  background-color: yellow;
+} 
+
+#circle3 {
+  background-color: orange;
+} 
+
+#circle4 {
+  background-color: red;
+} 
+
+.circle.active {
+  filter: brightness(100%);
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #f3f3f3;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  margin: 5rem 1rem;
+  cursor: pointer;
+}
+
+.overlay {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: white;
+  padding: 2rem;
+  width: 40%;
+  height: 25%;
+  border-radius: 10px;
+  position: relative;
+  color: black;
+}
+
+.modal button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  margin: 0;
+}
+
+.modal .score {
+  font-size: 1.5rem;
+}
+
+.hidden{
+  display: none;
+}
