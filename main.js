@@ -12,10 +12,7 @@ let timer
 let pace = 1000
 let rounds = 0
 
-circles.forEach((circle, i) => {
-  circle.addEventListener('click', () => clickCircle(i))
-}
-)
+let clicked
 
 const getRndInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 
@@ -23,10 +20,22 @@ const clickCircle = (i) => {
   if (i !== active) {
     return endGame()
   }
-
+  clicked = true
   score += 10
   scoreSpan.textContent = score
 }
+
+const audioClick = () => {
+  const audioRight = new Audio('https://audio.code.org/goal1.mp3')
+  audioRight.play()
+}
+
+  circles.forEach(circles => {
+    circles.addEventListener('click', () => {
+      audioClick()
+    })
+  })
+
 
 const enableCircles = () => {
   circles.forEach(circle => {
@@ -66,6 +75,8 @@ const startGame = () => {
 }
 
 const endGame = () => {
+  const audioLose = new Audio('https://audio.code.org/failure3.mp3')
+  audioLose.play()
   scoreEnd.textContent = score
   endButton.classList.remove('hidden')
   startButton.classList.add('hidden')
