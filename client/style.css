@@ -15,9 +15,6 @@ body {
   min-height: 100vh;
   color: white;
   max-width: 1200px;
-}
-
-.header {
   background-image: url('bg.jpg');
 }
 
