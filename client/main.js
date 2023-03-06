@@ -11,31 +11,32 @@ let active = 0
 let timer
 let pace = 1000
 let rounds = 0
-
+// eslint-disable-next-line no-unused-vars
 let clicked
-
 const getRndInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
-
-const clickCircle = (i) => {
-  if (i !== active) {
-    return endGame()
-  }
-  clicked = true
-  score += 10
-  scoreSpan.textContent = score
-}
 
 const audioClick = () => {
   const audioRight = new Audio('https://audio.code.org/goal1.mp3')
   audioRight.play()
 }
 
-  circles.forEach(circles => {
-    circles.addEventListener('click', () => {
-      audioClick()
-    })
-  })
+const clickCircle = (i) => {
+  if (i !== active) {
+    return endGame()
+  }
 
+  clicked = true
+  score += 10
+  scoreSpan.textContent = score
+}
+
+circles.forEach((circle, i) => {
+  // eslint-disable-next-line indent
+    circle.addEventListener('click', () => {
+    audioClick()
+    clickCircle(i)
+  })
+})
 
 const enableCircles = () => {
   circles.forEach(circle => {
@@ -74,9 +75,13 @@ const startGame = () => {
   }
 }
 
-const endGame = () => {
+const endGameAudio = () => {
   const audioLose = new Audio('https://audio.code.org/failure3.mp3')
   audioLose.play()
+}
+
+const endGame = () => {
+  endGameAudio()
   scoreEnd.textContent = score
   endButton.classList.remove('hidden')
   startButton.classList.add('hidden')

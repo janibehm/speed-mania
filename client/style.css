@@ -17,6 +17,10 @@ body {
   max-width: 1200px;
 }
 
+.header {
+  background-image: url('bg.jpg');
+}
+
 .circles {
   display: flex;
   flex-wrap: wrap;
