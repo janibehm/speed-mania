@@ -43,12 +43,15 @@ const enableCircles = () => {
     circle.style.pointerEvents = 'auto'
   })
 }
+function themeMusic () {
+  const audio = new Audio('http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/music/win.ogg')
+  audio.play()
+}
 
 const startGame = () => {
   if (rounds >= 10) {
     return endGame()
   }
-
   startButton.classList.add('hidden')
   endButton.classList.remove('hidden')
 
@@ -95,5 +98,6 @@ const resetGame = () => {
 }
 
 startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', themeMusic)
 endButton.addEventListener('click', endGame)
 closeButton.addEventListener('click', resetGame)
