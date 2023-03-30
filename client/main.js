@@ -67,7 +67,7 @@ const startGame = () => {
 
   pace -= 10
   rounds++
-  console.log(score)
+  /*  console.log(score) */
   function pickNew (active) {
     const nextActive = getRndInt(0, 3)
     if (nextActive !== active
@@ -89,7 +89,7 @@ const endGame = () => {
   endButton.classList.remove('hidden')
   startButton.classList.add('hidden')
   overlay.style.visibility = 'visible'
-  console.log('game ended')
+  /*  console.log('game ended') */
   clearTimeout(timer)
 }
 
